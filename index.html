@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#06070d">
+<title>Zuiral Stars</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="st" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></symbol>
+  <symbol id="dm" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9zm1.6 6L12 17l4.4-8z"/></symbol>
+</svg>
+<canvas id="sky"></canvas>
+
+<div class="splash" id="splash">
+  <div class="sp-wrap">
+    <svg class="sp-logo"><use href="#st"/></svg>
+    <h1>Zuiral Stars</h1>
+    <div class="term" id="term" aria-live="polite"></div>
+    <div class="prog"><i id="bar"></i></div>
+    <div class="pct" id="pct">0%</div>
+    <div class="me"><img id="spAva" alt=""><div><small>Сесія</small><b id="spName">Гість</b></div></div>
+  </div>
+</div>
+
+<div class="app" id="shop">
+  <header>
+    <div class="brand"><svg class="ic"><use href="#st"/></svg><div><b>Zuiral Stars</b><small id="rate">1 ★ = … ₴</small></div></div>
+    <div class="hr">
+      <button class="adminbtn" id="toAdmin" hidden>Панель</button>
+      <div class="me sm"><img id="hdAva" alt=""><b id="hdName">Гість</b></div>
+    </div>
+  </header>
+  <main>
+    <div class="seg" id="seg">
+      <button data-cat="stars" class="on"><svg class="ic"><use href="#st"/></svg>Telegram Stars</button>
+      <button data-cat="premium"><svg class="ic"><use href="#dm"/></svg>Telegram Premium</button>
+    </div>
+    <section>
+      <label for="rcp">Отримувач</label>
+      <div class="row"><input id="rcp" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="ghost" id="self" type="button">Собі</button></div>
+    </section>
+    <section id="starsBox">
+      <label>Пакет зірок</label>
+      <div class="packs" id="packs"></div>
+      <input id="custom" inputmode="numeric" placeholder="Своя кількість: від 50 до 100 000" autocomplete="off">
+    </section>
+    <section id="premBox" hidden>
+      <label>Термін підписки</label>
+      <div class="packs" id="months"></div>
+    </section>
+    <section>
+      <label for="promo">Промокод</label>
+      <div class="row"><input id="promo" placeholder="Введіть код" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="ghost" id="apply" type="button">Застосувати</button></div>
+      <p class="hint" id="pmsg"></p>
+    </section>
+    <section class="ticket" id="sum"></section>
+    <div class="actions">
+      <button class="cta" id="order" type="button">Оформити замовлення</button>
+      <button class="ghost wide" id="support" type="button">Підтримка</button>
+    </div>
+  </main>
+</div>
+
+<div class="app" id="admin" hidden>
+  <header>
+    <div class="brand"><svg class="ic"><use href="#st"/></svg><div><b>Панель керування</b><small>Тільки для адміністратора</small></div></div>
+    <button class="ghost" id="toShop">← До магазину</button>
+  </header>
+  <main>
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-tab="orders">Замовлення</button>
+      <button class="tab" data-tab="promos">Промокоди</button>
+      <button class="tab" data-tab="bans">Бан</button>
+      <button class="tab" data-tab="prices">Ціни</button>
+    </nav>
+    <div id="adminBody"></div>
+  </main>
+</div>
+
+<div id="toast" role="status"></div>
+<div class="done" id="done" hidden><div><svg class="ic"><use href="#st"/></svg><h2 id="doneT"></h2><p id="doneP"></p></div></div>
+<script src="app.js"></script>
+</body>
+</html>
